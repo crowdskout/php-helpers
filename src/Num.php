@@ -841,7 +841,7 @@ class Num
 				if (preg_match(self::REGEX_NUMBER_COMMA, $var)) {
 					$value = +str_replace(',', '', $var);
 				} elseif (preg_match(self::REGEX_NUMBER_MIXED, $var, $m)) {
-					$value = $m[4] !== 0 ? $m[2] + $m[3] / $m[4] : $m[2] + $m[3];
+					$value = (int) $m[4] !== 0 ? $m[2] + $m[3] / $m[4] : $m[2] + $m[3];
 				} elseif (is_numeric(substr($var, 0, 1)) && in_array(substr($var, -2), self::$suffixes)) {
 					$value = substr($var, 0, -2);
 				} else {
